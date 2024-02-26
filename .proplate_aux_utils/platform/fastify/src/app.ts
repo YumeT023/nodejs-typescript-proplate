@@ -3,7 +3,7 @@ import {bootstrapServer} from "./server";
 const app = bootstrapServer();
 
 const options = {
-  port: Number(process.env.PORT || 8080),
+  port: Number(process.env.PORT) || 8080,
 };
 
 app.listen(options, (err, addr) => {
