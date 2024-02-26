@@ -4,16 +4,12 @@
   "version": "0.0.0-PLACEHOLDER",
   "description": "$app_description",
   "license": "$license",
-  "module": "$out/index.mjs",
-  "main": "$out/index.cjs",
-  "types": "$out/index.d.ts",
-  "files": [
-    "$out"
-  ],
+  "main": "$out/index.js",
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "lint": "eslint --ignore-path .eslintignore --ext .ts .",
-    "lint:fix": "yarn lint -- --fix",
+    "dev": "tsx src/app.ts",
+    "build": "tsc",
+    "lint": "eslint --cache . --ext .ts",
+    "lint:fix": "eslint --cache --fix . --ext .ts",
     "format": "prettier -w ."
   },
   "devDependencies": {
@@ -22,7 +18,8 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4"
+    "tsx": "^4.7.1",
+    "typescript": ">=5.0.4 <5.2.0"
   },
   "dependencies": {
     "tslib": "^2.5.3"
