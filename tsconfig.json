@@ -8,6 +8,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "declaration": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     // use tslib runtime to meaningfully decrease build output size
     // as mentioned here https://www.typescriptlang.org/tsconfig#importHelpers

@@ -1,22 +1,66 @@
 {
-  "id": "npm-typescript-starter",
+  "id": "nodejs-typescript-proplate",
   "args": [
     {
       "key": "app_name",
-      "label": "Package name",
-      "q_type": "Text",
-      "default_value": "dist"
+      "label": "app name",
+      "q_type": "Text"
     },
     {
       "key": "app_description",
-      "label": "Package description",
+      "label": "description",
       "q_type": "Text"
     },
     {
       "key": "out",
-      "label": "Build output dir",
+      "label": "Build out dir",
       "q_type": "Text",
       "default_value": "dist"
+    },
+    {
+      "key": "platform",
+      "label": "Choose backend platform",
+      "q_type": "Select",
+      "options": [
+        "Express",
+        "Fastify"
+      ]
+    }
+  ],
+  "additional_operations": [
+    {
+      "conditions": [
+        {
+          "lhs": "$platform",
+          "op": "Eq",
+          "rhs": "Fastify"
+        }
+      ],
+      "operations": [
+        {
+          "CopyDir": {
+            "path": ".proplate_aux_utils/platform/fastify",
+            "dest": "."
+          }
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "lhs": "$platform",
+          "op": "Eq",
+          "rhs": "Express"
+        }
+      ],
+      "operations": [
+        {
+          "CopyDir": {
+            "path": ".proplate_aux_utils/platform/express",
+            "dest": "."
+          }
+        }
+      ]
     }
   ]
 }
