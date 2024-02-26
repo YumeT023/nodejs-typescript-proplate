@@ -1,0 +1,22 @@
+{
+  "id": "npm-typescript-starter",
+  "args": [
+    {
+      "key": "app_name",
+      "label": "Package name",
+      "q_type": "Text",
+      "default_value": "dist"
+    },
+    {
+      "key": "app_description",
+      "label": "Package description",
+      "q_type": "Text"
+    },
+    {
+      "key": "out",
+      "label": "Build output dir",
+      "q_type": "Text",
+      "default_value": "dist"
+    }
+  ]
+}

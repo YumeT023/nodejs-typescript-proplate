@@ -1,0 +1,21 @@
+# IDE
+.vscode
+.idea
+
+# build output
+dist
+build
+
+# deps
+node_modules
+
+# allow user to use their own package manager so push the lockfile
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# env variables
+# allow .env.template
+.env
+.env.test
+
