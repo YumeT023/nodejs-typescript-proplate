@@ -27,17 +27,17 @@ export const validateReq = (schema: Partial<RequestSchema>): RequestHandler => {
       query.safeParse(req.query),
       params.safeParse(req.params),
     ]
-    .filter(res => !res.success)
-    .reduce((messages, res: SafeParseError<any>) => {
-      // /!\ javascript doesn't need StringBuilder !!!
-      messages.push(issuesToString(res.error.issues));
-      return messages;
-    }, []);
+      .filter((res) => !res.success)
+      .reduce((messages, res: SafeParseError<any>) => {
+        // /!\ javascript doesn't need StringBuilder !!!
+        messages.push(issuesToString(res.error.issues));
+        return messages;
+      }, []);
 
     if (messages.length) {
       return res.status(400).send({
         status: 400,
-        message: messages.join('\n'),
+        message: messages.join("\n"),
       });
     }
 

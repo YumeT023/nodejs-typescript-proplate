@@ -24,6 +24,7 @@
       "options": ["Express", "Fastify"]
     }
   ],
+  "dynamic_files": ["package.json", "tsconfig.json"],
   "additional_operations": [
     {
       "conditions": [
