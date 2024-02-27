@@ -2,7 +2,7 @@ import {Router} from "express";
 import {z} from "zod";
 import {getAllHandler, getByIdHandler, crupdateHandler} from "./controller";
 import {validateReq} from "../middlewares";
-import {$ref} from "../schemas";
+import {\$ref} from "../schemas";
 import {nanoid} from "../../../util/zod_util";
 
 const proplateRouter = Router();
@@ -23,7 +23,7 @@ proplateRouter.put(
     params: z.object({
       pid: nanoid(),
     }),
-    body: $ref["proplate.crupdate"],
+    body: \$ref["proplate.crupdate"],
   }),
   crupdateHandler
 );
