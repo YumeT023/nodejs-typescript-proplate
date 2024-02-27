@@ -1,5 +1,5 @@
 import {NotFound} from "http-errors";
-import {\$ref} from "../schemas";
+import {$ref} from "../schemas";
 
 // example (not recommended at all) how service are structured
 // use nanoid to gen uid
@@ -34,7 +34,7 @@ const getById = (pid: string) => {
 };
 
 // create/update
-const crupdate = (toSave: \$ref["proplate.crupdate"], pid: string) => {
+const crupdate = (toSave: $ref["proplate.crupdate"], pid: string) => {
   proplates.set(pid, toSave);
   return Promise.resolve(toSave);
 };
