@@ -3,12 +3,12 @@ import {inferTypeFromSchemaRecord} from "../../util/zod_util";
 
 /* Keep the operations [idempotent](https://en.wikipedia.org/wiki/Idempotence) */
 export const ProplateDto = {
-  ["proplate.crupdate"]:  z.object({
+  ["proplate.crupdate"]: z.object({
     id: z.string().min(21),
     name: z.string().min(4),
     description: z.string().min(10),
-  })
-}
+  }),
+};
 
 export type ProplateDto = inferTypeFromSchemaRecord<typeof ProplateDto>;
 

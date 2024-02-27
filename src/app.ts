@@ -1,1 +1,1 @@
-console.log('Hello proplate')
+console.log("Hello proplate");

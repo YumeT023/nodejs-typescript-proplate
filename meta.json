@@ -21,10 +21,7 @@
       "key": "platform",
       "label": "Choose backend platform",
       "q_type": "Select",
-      "options": [
-        "Express",
-        "Fastify"
-      ]
+      "options": ["Express", "Fastify"]
     }
   ],
   "additional_operations": [

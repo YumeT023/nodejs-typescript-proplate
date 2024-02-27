@@ -1,7 +1,6 @@
-
 import fastify from "fastify";
 import cors from "@fastify/cors";
-import {schemas, routes} from "./core";
+import {schemas, routes} from "./core/rest";
 
 /**
  * Bootstraps every components:
@@ -13,15 +12,15 @@ import {schemas, routes} from "./core";
 export const bootstrapServer = () => {
   const server = fastify();
 
-  schemas.forEach(schema => {
+  schemas.forEach((schema) => {
     server.addSchema(schema);
-  })
+  });
 
   server.register(cors);
 
-  routes.forEach(route => {
+  routes.forEach((route) => {
     server.register(route);
-  })
+  });
 
   return server;
 };
