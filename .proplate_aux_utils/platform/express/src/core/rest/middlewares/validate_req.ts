@@ -1,10 +1,11 @@
 import {RequestHandler} from "express";
-import {ZodSchema, z} from "zod";
+import {SafeParseError, ZodType, z} from "zod";
+import {issuesToString} from "../../../util/zod_util";
 
 export interface RequestSchema {
-  body: ZodSchema;
-  query: ZodSchema;
-  params: ZodSchema;
+  body: ZodType;
+  query: ZodType;
+  params: ZodType;
 }
 
 const DEFAULT_SCHEMA = {
@@ -21,20 +22,23 @@ export const validateReq = (schema: Partial<RequestSchema>): RequestHandler => {
   };
 
   return (req, res, next) => {
-    const errorMessage = [
+    const messages = [
       body.safeParse(req.body),
       query.safeParse(req.query),
       params.safeParse(req.params),
-    ].reduce((message, res) => {
-      if (!res.success) {
-        // /!\ javascript doesn't need StringBuilder !!!
-        message += `.\n${res.error.message}`;
-      }
-      return message;
-    }, "");
+    ]
+    .filter(res => !res.success)
+    .reduce((messages, res: SafeParseError<any>) => {
+      // /!\ javascript doesn't need StringBuilder !!!
+      messages.push(issuesToString(res.error.issues));
+      return messages;
+    }, []);
 
-    if (errorMessage) {
-      return res.status(404).send(errorMessage);
+    if (messages.length) {
+      return res.status(400).send({
+        status: 400,
+        message: messages.join('\n'),
+      });
     }
 
     next();

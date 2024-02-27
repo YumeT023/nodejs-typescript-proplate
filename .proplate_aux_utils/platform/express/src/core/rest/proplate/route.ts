@@ -12,7 +12,9 @@ proplateRouter.get("/proplates", getAllHandler);
 proplateRouter.get(
   "/proplates/:pid",
   validateReq({
-    params: nanoid(),
+    params: z.object({
+      pid: nanoid(),
+    }),
   }),
   getByIdHandler
 );

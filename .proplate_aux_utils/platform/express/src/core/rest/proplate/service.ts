@@ -7,13 +7,13 @@ import {\$ref} from "../schemas";
 // simple map to store entries
 const proplates = new Map(
   Object.entries({
-    ["modern-react-ts-proplate"]: {
-      id: "modern-react-ts-proplate",
+    ["phOsqYW2jB6tq0WtGwFEO"]: {
+      id: "phOsqYW2jB6tq0WtGwFEO",
       name: "modern-react-ts-proplate",
       description: "opinionated react vite typescript starter",
     },
-    ["nodejs-typescript-proplate"]: {
-      id: "nodejs-typescript-proplate",
+    ["Wr0yfI4baGgb26WqyaiYX"]: {
+      id: "Wr0yfI4baGgb26WqyaiYX",
       name: "nodejs-typescript-proplate",
       description: "opinionated react vite typescript starter",
     },

@@ -12,7 +12,7 @@ import {routes} from "./core/rest";
 export const bootstrapServer = () => {
   const server = express();
 
-  server.use(cors, express.json());
+  server.use(cors(), express.json());
 
   routes.forEach((route) => {
     server.use(route);
