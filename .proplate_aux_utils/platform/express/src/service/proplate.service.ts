@@ -39,8 +39,4 @@ const crupdate = (toSave: $ref["proplate.crupdate"], pid: string) => {
   return Promise.resolve(toSave);
 };
 
-export default {
-  getAll,
-  getById,
-  crupdate,
-};
+export {getAll, getById, crupdate};

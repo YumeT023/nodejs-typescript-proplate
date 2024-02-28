@@ -1,6 +1,6 @@
 import {RequestHandler} from "express";
-import {SafeParseError, ZodType, z} from "zod";
-import {issuesToString} from "../../../util/zod_util";
+import {ZodType, z} from "zod";
+import {issuesToString} from "../util/zod_util";
 
 export interface RequestSchema {
   body: ZodType;
@@ -26,13 +26,12 @@ export const validateReq = (schema: Partial<RequestSchema>): RequestHandler => {
       body.safeParse(req.body),
       query.safeParse(req.query),
       params.safeParse(req.params),
-    ]
-      .filter((res) => !res.success)
-      .reduce((messages, res: SafeParseError<any>) => {
-        // /!\ javascript doesn't need StringBuilder !!!
+    ].reduce<string[]>((messages, res) => {
+      if (!res.success) {
         messages.push(issuesToString(res.error.issues));
-        return messages;
-      }, []);
+      }
+      return messages;
+    }, []);
 
     if (messages.length) {
       return res.status(400).send({

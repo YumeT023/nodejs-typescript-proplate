@@ -1,9 +1,9 @@
 import {FastifyRequest} from "fastify";
-import {ProplateDto} from "./schema";
-import service from "./service";
+import {$ref} from "../schemas";
+import {getAll, getById, crupdate} from "../service/proplate.service";
 
 const getAllHandler = () => {
-  return service.getAll();
+  return getAll();
 };
 
 const getByIdHandler = async ({
@@ -13,19 +13,19 @@ const getByIdHandler = async ({
     pid: string;
   };
 }>) => {
-  return service.getById(params.pid);
+  return getById(params.pid);
 };
 
 const crupdateHandler = async ({
   body,
   params,
 }: FastifyRequest<{
-  Body: ProplateDto["proplate.crupdate"];
+  Body: $ref["proplate.crupdate"];
   Params: {
     pid: string;
   };
 }>) => {
-  return await service.crupdate(body, params.pid);
+  return await crupdate(body, params.pid);
 };
 
 export {getAllHandler, getByIdHandler, crupdateHandler};

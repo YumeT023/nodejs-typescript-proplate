@@ -1,9 +1,13 @@
 import {Router} from "express";
 import {z} from "zod";
-import {getAllHandler, getByIdHandler, crupdateHandler} from "./controller";
-import {validateReq} from "../middlewares";
 import {$ref} from "../schemas";
-import {nanoid} from "../../../util/zod_util";
+import {
+  getAllHandler,
+  getByIdHandler,
+  crupdateHandler,
+} from "../controller/proplate.controller";
+import {validateReq} from "../middlewares";
+import {nanoid} from "../util/zod_util";
 
 const proplateRouter = Router();
 

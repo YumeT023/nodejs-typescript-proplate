@@ -1,6 +1,10 @@
 import {FastifyPluginCallback} from "fastify";
-import {getAllHandler, getByIdHandler, crupdateHandler} from "./controller";
 import {$ref} from "../schemas";
+import {
+  getAllHandler,
+  getByIdHandler,
+  crupdateHandler,
+} from "../controller/proplate.controller";
 
 export const proplateRoutes: FastifyPluginCallback = (server, _, done) => {
   server.get("/proplates", getAllHandler);

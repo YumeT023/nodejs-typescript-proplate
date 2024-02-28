@@ -18,5 +18,5 @@ export interface RequestData {
 export type RequestHandler<
   Body = any,
   Params extends ParamsDictionary = ParamsDictionary,
-  Query = ParsedQs,
+  Query = ParsedQs
 > = express.RequestHandler<Params, any, Body, Query>;

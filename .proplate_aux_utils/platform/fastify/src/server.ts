@@ -1,6 +1,7 @@
 import fastify from "fastify";
 import cors from "@fastify/cors";
-import {schemas, routes} from "./core/rest";
+import {routes} from "./routes";
+import {schemas} from "./schemas";
 
 /**
  * Bootstraps every components:
